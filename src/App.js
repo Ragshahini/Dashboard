@@ -6,20 +6,22 @@ import ActivityLog from "./Components/ActivityLog";
 
 function App() {
   return (
-    <Flex>
+    <Flex minHeight="100vh" direction="row" bg="gray.50">
       <Sidebar />
-      <Box flex="1" p={5}>
-        <Flex gap={4}>
-          <StatCard title="Daily Active Users" value="1051" date="18 Mar 2020" />
-          <StatCard title="Monthly Active Users" value="1051" date="18 Mar 2020" />
-          <StatCard title="Daily Time Per User" value="1051" date="18 Mar 2020" />
+      <Box flex="1" p={4}> {/* Reduced padding for the main content */}
+        <Flex direction="column" gap={2}> {/* Reduced gap between Flex items */}
+          <Flex gap={3} wrap="wrap" justify="flex-start"> {/* Adjusted to bring cards closer */}
+            <StatCard title="Daily Active Users" value="1051" date="18 Mar 2020" />
+            <StatCard title="Monthly Active Users" value="2200" date="18 Mar 2020" />
+            <StatCard title="Daily Time Per User" value="3 hrs" date="18 Mar 2020" />
+          </Flex>
+          <Box mt={4} bg="white" p={4} borderRadius="lg" boxShadow="lg"> {/* Reduced margin-top */}
+            <UserActivityChart />
+          </Box>
+          <Box mt={4} bg="white" p={4} borderRadius="lg" boxShadow="lg"> {/* Reduced margin-top */}
+            <ActivityLog />
+          </Box>
         </Flex>
-        <Box mt={5}>
-          <UserActivityChart />
-        </Box>
-        <Box mt={5}>
-          <ActivityLog />
-        </Box>
       </Box>
     </Flex>
   );
