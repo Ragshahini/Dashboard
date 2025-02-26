@@ -39,7 +39,7 @@ const Sidebar = () => {
           icon={isExpanded ? <FaChevronLeft /> : <FaChevronRight />}
           onClick={handleSidebarToggle}
           variant="ghost"
-          color="gold"
+          color="#17a2b8"
           size="lg"
           _hover={{ bg: "transparent", transform: "scale(1.1)" }}
         />
