@@ -10,7 +10,7 @@ const StatCard = ({ title, value, date }) => {
   return (
     <Box
       as={motion.div}
-      whileHover={{ scale: 1.05 }}  // Only scaling the card on hover, without rotation
+      whileHover={{ scale: 1.05 }}  
       whileTap={{ scale: 0.95 }}
       whileFocus={{ scale: 1.05 }}
       transition="all 0.3s ease"
@@ -20,8 +20,8 @@ const StatCard = ({ title, value, date }) => {
       boxShadow="lg"
       bg="white"
       _hover={{
-        boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.1)",  // Adding a subtle shadow effect on hover
-        transform: "translateY(-5px)",  // Slight pop-up effect
+        boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.1)",  
+        transform: "translateY(-5px)",  
         cursor: "pointer",
       }}
       borderColor="#17a2b8"
