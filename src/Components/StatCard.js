@@ -14,7 +14,7 @@ const StatCard = ({ title, value, date }) => {
       whileTap={{ scale: 0.95 }}
       whileFocus={{ scale: 1.05 }}
       transition="all 0.3s ease"
-      p={5}
+      p={3}
       borderWidth="1px"
       borderRadius="lg"
       boxShadow="lg"

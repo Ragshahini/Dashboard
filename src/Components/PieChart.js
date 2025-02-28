@@ -68,8 +68,8 @@ const PieChart = () => {
       transition={{ duration: 1.2, ease: "easeOut" }} 
       style={{
         position: "relative",
-        width: "320px",
-        height: "320px",
+        width: "200px",
+        height: "200px",
         borderRadius: "10px",
         boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
         padding: "20px",

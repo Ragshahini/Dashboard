@@ -56,7 +56,7 @@ const ActivityLog = () => {
       borderRadius="md"
       bgGradient="linear(to-r, #17a2b8, #0d6efd)"
       color="white"
-      maxH="320px"
+      maxH="2000px"
       overflowY="auto"
       boxShadow="0px 4px 12px rgba(0, 0, 0, 0.1)"
       sx={{

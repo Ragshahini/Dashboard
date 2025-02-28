@@ -1,10 +1,9 @@
+import { useState } from "react";  // <-- Import useState
 import { Box, VStack, Text, Link, HStack, Image, IconButton } from "@chakra-ui/react";
 import { FaHome, FaChartBar, FaClipboardList, FaBook, FaStore, FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
-const Sidebar = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const Sidebar = ({ isExpanded, setIsExpanded }) => {
   const [activePage, setActivePage] = useState("Dashboard");
   const [hoveredLink, setHoveredLink] = useState(null);
 
@@ -23,15 +22,16 @@ const Sidebar = () => {
       as={motion.div}
       width={isExpanded ? "260px" : "80px"}
       minWidth={isExpanded ? "260px" : "80px"}
-      height="140vh"
+      height="100vh"
+      position="fixed"
+      top="0"
+      left="0"
       p={5}
       color="white"
       bg="#B3D9D2"
       boxShadow="lg"
       fontFamily="Poppins, sans-serif"
-      initial={{ width: "80px" }}
-      animate={{ width: isExpanded ? "260px" : "80px" }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
+      transition="width 0.4s ease-in-out"
     >
       {/* Sidebar Toggle Button */}
       <HStack justify="flex-end" mt={4}>
@@ -42,26 +42,13 @@ const Sidebar = () => {
           variant="ghost"
           color="#17a2b8"
           size="lg"
-          _hover={{ bg: "#ffff" }}
+          _hover={{ bg: "transparent", transform: "scale(1.1)" }}
         />
       </HStack>
 
       {/* Sidebar Logo */}
-      <HStack
-        spacing={3}
-        mb={6}
-        justify={isExpanded ? "center" : "flex-start"}
-        mt={6}
-        // Removed the border
-        p={0.5} // Padding for the circle
-      >
-        <Image
-          src="/logo.webp"
-          alt="Logo"
-          boxSize="50px"
-          transition="all 0.3s ease"
-          borderRadius="full"
-        />
+      <HStack spacing={3} mb={6} justify={isExpanded ? "center" : "flex-start"} mt={6}>
+        <Image src="/logo.webp" alt="Logo" boxSize="50px" transition="all 0.3s ease" borderRadius="full" />
       </HStack>
 
       {/* Sidebar Links */}
@@ -86,19 +73,10 @@ const Sidebar = () => {
             _hover={{ bg: "rgba(41, 40, 40, 0.1)", transform: "scale(1.05)" }}
             width="100%"
           >
-            <Box
-              as={motion.div}
-              whileHover={{ scale: 1.2 }}
-              transition="0.2s"
-              color="black"
-              _hover={{
-                color: activePage === link.name ? "gray.600" : "gray.700", 
-              }}
-            >
+            <Box as={motion.div} whileHover={{ scale: 1.2 }} transition="0.2s" color="black">
               {link.icon}
             </Box>
 
-            {/* Tooltip Box */}
             {hoveredLink === link.name && !isExpanded && (
               <Box
                 position="absolute"
@@ -119,22 +97,6 @@ const Sidebar = () => {
             )}
 
             {isExpanded && <Text>{link.name}</Text>}
-
-            {/* Active Link Indicator */}
-            {activePage === link.name && (
-              <Box
-                as={motion.div}
-                layoutId="activeIndicator"
-                position="absolute"
-                left="-6px"
-                height="100%"
-                width="5px"
-                bg="linear-gradient(to right, #17a2b8, #0d6efd)"
-                borderRadius="full"
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                boxShadow="0px 0px 10px rgba(78, 115, 223, 0.7), 0px 0px 10px rgba(106, 90, 205, 0.7)"
-              />
-            )}
           </Link>
         ))}
       </VStack>
